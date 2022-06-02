@@ -2,10 +2,13 @@
 # Flask v2.1.2
 # Bootstrap v5.2.x
 from flask import Flask, render_template, url_for
+from forms import FormLogin, FormCriarConta
+
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '588c8bc829117bc81c7e01fd0472eddc'
 
-lista_usuarios = ['Lira', 'João', 'Alan', 'Alessandra', 'Amanda']
+lista_usuarios = ['Lira', 'João', 'Alan', 'Alessandra', 'Amanda'] #página contato
 
 
 @app.route('/')
@@ -22,7 +25,9 @@ def usuarios():
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    form_login = FormLogin()
+    form_criarconta = FormCriarConta()
+    return render_template('login.html', form_login=form_login, form_criarconta=form_criarconta)
 
 
 if __name__ == '__main__':
