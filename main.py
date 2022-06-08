@@ -1,7 +1,7 @@
 # Python v3.10.4
 # Flask v2.1.2
 # Bootstrap v5.2.x
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from forms import FormLogin, FormCriarConta
 
 
@@ -27,6 +27,9 @@ def usuarios():
 def login():
     form_login = FormLogin()
     form_criarconta = FormCriarConta()
+    
+    if form_login.validate_on_submit() and 
+    
     return render_template('login.html', form_login=form_login, form_criarconta=form_criarconta)
 
 
